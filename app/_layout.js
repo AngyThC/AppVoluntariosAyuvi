@@ -1,4 +1,5 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import Notifications from "./notificaciones";
 
 const Drawer = createDrawerNavigator();
 
@@ -16,6 +17,7 @@ export default function Layout() {
         headerTitleStyle: {
           fontWeight: "bold",
         },
+        headerRight: () => <Notifications />, // Aquí se coloca el componente de notificaciones
       }}
     >
       <Drawer.Screen
@@ -27,6 +29,11 @@ export default function Layout() {
         name="about"
         options={{ drawerLabel: "Acerca de" }}
         getComponent={() => require("./about").default}
+      />
+      <Drawer.Screen
+        name="Soporte Técnico"
+        options={{ drawerLabel: "Soporte Técnico" }}
+        getComponent={() => require("./soporteTecnico").default}
       />
     </Drawer.Navigator>
   );
